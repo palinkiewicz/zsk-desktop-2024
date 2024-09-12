@@ -5,7 +5,12 @@ double* quadratic_function(double a, double b, double c, int &size) {
     double delta = b * b - 4 * a * c;
     double* pt;
 
-    if (delta < 0) {
+    if (a == 0) {
+        pt = new double[1];
+        pt[0] = -1.0 * c / b;
+        size = 1;
+    }
+    else if (delta < 0) {
         pt = nullptr;
         size = 0;
     }
@@ -27,7 +32,7 @@ double* quadratic_function(double a, double b, double c, int &size) {
 int main()
 {
     int size;
-    double* res = quadratic_function(-1.0, 4.0, -4.0, size);
+    double* res = quadratic_function(-0.0, 4.0, -4.0, size);
 
     if (size == 0) {
         std::cout << "Brak pierwiastka\n";
